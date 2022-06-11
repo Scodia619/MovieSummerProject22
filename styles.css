@@ -1,0 +1,14 @@
+*{
+    background-color: #3a3b3a;
+}
+
+#title{
+    color: white;
+    font-weight: bold;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    text-align: center;
+}
+
+.container{
+    display:grid;
+}
