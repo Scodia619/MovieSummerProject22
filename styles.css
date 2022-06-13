@@ -10,5 +10,18 @@
 }
 
 .container{
-    display:grid;
+    display:flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    width: 100vw;
+}
+
+.item{
+    border-radius: 25%;
+    text-align: center;
+    color:black;
+    background-color: white;
+    flex-basis: 100px;
+    height: 100px;
+    flex-shrink: 0;
 }
