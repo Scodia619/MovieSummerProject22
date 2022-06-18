@@ -9,7 +9,7 @@
     text-align: center;
 }
 
-.container{
+#container{
     display:flex;
     flex-wrap: nowrap;
     overflow-x: scroll;
@@ -17,11 +17,13 @@
 }
 
 .item{
+    flex-grow: 1; 
     border-radius: 25%;
     text-align: center;
     color:black;
     background-color: white;
     flex-basis: 100px;
+    width: 25%;
     height: 100px;
     flex-shrink: 0;
 }
