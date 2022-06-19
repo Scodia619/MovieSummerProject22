@@ -46,7 +46,7 @@ p{
     border: 1.5px solid #484848;
 }
 
-.item:hover > .film-description{
+.item:hover > .film-description-holder{
     display: block;
     background-color: #585858;
 }
@@ -55,7 +55,7 @@ p{
     visibility: hidden;
 }
 
-#film-title{
+.film-title{
     color: white;
 }
 
@@ -66,11 +66,11 @@ p{
     border-radius: 0em 0em 1.5em 1.5em;
 }
 
-#film-title{
+.film-title{
     background-color: #484848;
 }
 
-#film-rating{
+.film-rating{
     color:#ff0000;
     background-color: #585858;
     border-radius: 1em;
@@ -78,7 +78,7 @@ p{
     height: 1.5em;
 }
 
-.film-description{
+.film-description-holder{
     background-color: transparent;
     position: relative;
     top: -290px;

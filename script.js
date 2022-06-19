@@ -14,7 +14,7 @@ arr.map(x => {
 
 //changing font colour based on rating
 //setting the variable
-const rating = 9;
+const rating = 6;
 
 //Conditional statements to decide what colour the font will be
 if(rating<4){
@@ -31,6 +31,11 @@ axios.get("https://api.themoviedb.org/3/movie/555?api_key=1c191405789eb90f303f6f
 .then(response => {
   console.log(response.data);
   let info = response.data;
-  console.log(info.poster_path)
+  console.log("http://image.tmdb.org/t/p" + info.poster_path)
+  document.getElementById("one").src = "http://image.tmdb.org/t/p/original" + info.poster_path;
+  document.getElementById("two").innerHTML = info.title;
+  console.log(document.getElementById("three").innerHTML)
+  document.getElementById("three").innerHTML = info.vote_average;
+  document.getElementById("four").innerHTML = info.overview;
 })
 .catch(error => console.error(error));
