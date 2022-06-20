@@ -1,16 +1,31 @@
 //Trying out adding more divs to the parent
 //getting the parent element
-const container = document.getElementById("container");
+const container = document.getElementById("1");
 //array for testing
-const arr = ["1","1","1"];
+const arr = ["80", "36", "878"];
 
-//array.map runs through all the element of the arr array much like forEach would
+//arr.map but adding the call for the database and a nested loop to display certain genres
 arr.map(x => {
-    const newDiv = document.createElement("div");
-    newDiv.className = "item";
-    newDiv.innerHTML += x;
-    container.append(newDiv)
-  });
+  //Show to Lee
+  axios.get("https://api.themoviedb.org/3/discover/movie?api_key=1c191405789eb90f303f6f758c15e1eb&language=en-US&with_genres="+parseInt(x))
+  .then(response => {
+  console.log(response.data);
+  let info = response.data;
+  for(let i=0; i < 5; i++){
+    console.log("https://image.tmdb.org/t/p/w500" + info.results[i].poster_path)
+    container.innerHTML += `<div class="item">
+    <img src="https://image.tmdb.org/t/p/original"` + info.results[i].poster_path +` alt="`+ info.results[i].title +`">
+    <div class="film-info ">
+        <p class="film-title">` + info.results[i].title +`</p>
+        <p class="film-rating">9/10</p>
+    </div>
+    <div class="film-description-holder">
+        <p class="film-description" id="four">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, esse possimus illum vero ut perferendis architecto reiciendis voluptates sint, nisi, eos ullam? Cupiditate iure quas, quibusdam voluptas suscipit beatae saepe.</p>
+    </div>
+</div>`
+  }
+  }).catch(error => console.error(error));
+})
 
 //changing font colour based on rating
 //setting the variable
@@ -23,19 +38,5 @@ if(rating<4){
   console.log("test")
   document.getElementById("film-rating").style.color = "#39FF14";
 }else{
-  document.getElementById("film-rating").style.color = "yellow";
+  document.getElementsByClassName("film-rating")[0].style.color = "yellow";
 }
-
-//testing axios
-axios.get("https://api.themoviedb.org/3/movie/555?api_key=1c191405789eb90f303f6f758c15e1eb&language=en-US")
-.then(response => {
-  console.log(response.data);
-  let info = response.data;
-  console.log("http://image.tmdb.org/t/p" + info.poster_path)
-  document.getElementById("one").src = "http://image.tmdb.org/t/p/original" + info.poster_path;
-  document.getElementById("two").innerHTML = info.title;
-  console.log(document.getElementById("three").innerHTML)
-  document.getElementById("three").innerHTML = info.vote_average;
-  document.getElementById("four").innerHTML = info.overview;
-})
-.catch(error => console.error(error));
