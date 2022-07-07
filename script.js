@@ -1,6 +1,7 @@
 //Trying out adding more divs to the parent
 //getting the parent element
-const container = document.getElementById("1");
+const wrapper = document.createElement("div");
+wrapper.className = "container"
 //array for testing
 const arr = ["80", "36", "878"];
 
@@ -11,11 +12,11 @@ arr.map(x => {
   .then(response => {
   console.log(response.data);
   let info = response.data;
+  wrapper.innerHTML=""
   for(let i=0; i < 5; i++){
     //need to get image display working and then finish seperate them based on genre
     //need to setup database and get rating and then colour code the rating if i have watched it
-    console.log("https://image.tmdb.org/t/p/w500" + info.results[i].poster_path)
-    container.innerHTML += `<div class="item">
+    wrapper.innerHTML += `<div class="item" id="` + x +`">
     <img src="https://image.tmdb.org/t/p/original` + info.results[i].poster_path +`" alt="`+ info.results[i].title +`">
     <div class="film-info ">
         <p class="film-title">` + info.results[i].title +`</p>
@@ -25,8 +26,10 @@ arr.map(x => {
         <p class="film-description">` + info.results[i].overview +`</p>
     </div>
 </div>`
+console.log(wrapper.innerHTML)
   }
-  }).catch(error => console.error(error));
+  document.body.append(wrapper)
+ }).catch(error => console.error(error));
 })
 
 //changing font colour based on rating
@@ -34,14 +37,14 @@ arr.map(x => {
 const rating = 6;
 
 //Conditional statements to decide what colour the font will be
-if(rating<4){
-  document.getElementById("film-rating").style.color = "red";
-}else if(rating>7){
-  console.log("test")
-  document.getElementById("film-rating").style.color = "#39FF14";
-}else{
-  document.getElementsByClassName("film-rating")[1].style.color = "yellow";
-}
+// if(rating<4){
+//   document.getElementById("film-rating").style.color = "red";
+// }else if(rating>7){
+//   console.log("test")
+//   document.getElementById("film-rating").style.color = "#39FF14";
+// }else{
+//   document.getElementsByClassName("film-rating")[1].style.color = "yellow";
+// }
 
 function add(){
   console.log("add")
