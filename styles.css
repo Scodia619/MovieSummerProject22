@@ -25,6 +25,7 @@
     flex-basis: 350px;
     height: 300px;
     flex-shrink: 0;
+    border: 2px solid white;
 }
 
 .item img{
@@ -38,12 +39,14 @@
     flex-basis: 450px;
     height: 300px;
     font-size: large;
-    border: 1px solid #585858;
 }
 
 .item:hover > .film-description-holder{
+    border-radius:1.5em 1.5em 0em 0em;
     display: flex;
-    background-color: #484848;
+    align-items: center;
+    height: 226px;
+    overflow-y: auto;
 }
 
 .item:hover > img{
@@ -90,6 +93,7 @@
     border-radius: 1em;
     width: 75%;
     font-weight: bolder;
+    margin-bottom: 0.5em;
 }
 
 .nav{
