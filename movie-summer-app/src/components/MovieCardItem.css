@@ -1,0 +1,106 @@
+.container{
+    display:flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    width: 100vw;
+    height: 55vh;
+    gap: 10px;
+}
+
+.item{
+    border-radius: 1.5em;
+    text-align: center;
+    color:black;
+    flex-basis: 350px;
+    height: 280px;
+    flex-shrink: 0;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    border: 1px solid white;
+}
+
+.item img{
+    width:100%;
+    height:216px;
+    object-fit: fill;
+    border-radius:1.5em 1.5em 0em 0em;
+}
+
+.item:hover{
+    flex-basis: 450px;
+    height: 288px;
+    font-size: large;
+}
+
+.item:hover > .film-description-holder{
+    border-radius:1.5em 1.5em 0em 0em;
+    display: flex;
+    align-items: center;
+    height: 226px;
+    overflow-y: auto;
+}
+
+.item:hover > img{
+    visibility: hidden;
+}
+
+.film-title{
+    color: white;
+}
+
+.film-info{
+    display: flex;
+    justify-content: space-around;
+    background-color: #484848;
+    border-radius: 0em 0em 1.5em 1.5em;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+}
+
+.film-title{
+    background-color: #484848;
+}
+
+.film-rating{
+    color:#ff0000;
+    background-color: #585858;
+    border-radius: 1em;
+    width:3em;
+    height: 1.5em;
+}
+
+.film-description-holder{
+    background-color: transparent;
+    position: relative;
+    top: -290px;
+    width:100%;
+    color: white;
+    display: none;
+}
+
+#add{
+    background-color: white;
+    color: lightblue;
+    border-radius: 1em;
+    width: 75%;
+    font-weight: bolder;
+    margin-bottom: 0.5em;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius:1.5em;
+    margin-bottom: 1em;
+}
+
+.button{
+    text-decoration: none;
+    background-color: white;
+    color: black;
+}
+
+h2{
+    background-color: white;
+}
